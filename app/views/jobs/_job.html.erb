@@ -1,0 +1,6 @@
+<li class="job" id="job_<%= job.id %>">
+	<span class="created_at"><%= time_ago_in_words(job.created_at) %> ago</span>
+	<span class="location"><%= h(job.location.name) %></span>
+	<span class="title"><%= link_to h(job.title), job %></span>
+	at <span class="company"><%= h(job.company) %></span>
+</li>

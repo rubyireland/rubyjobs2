@@ -1,0 +1,55 @@
+<table class="form">
+	<tr>
+  	<th><%= form.label :company %>:</th>
+  	<td><%= form.text_field :company %></td>
+	</tr>
+	<tr>
+  	<th>URL:</th>
+  	<td>
+    	<%= form.text_field :url %><br/>
+    	eg. http://www.incremental.ie/
+  	</td>
+	</tr>
+	<tr>
+  	<th><%= form.label :title %>:</th>
+  	<td>
+    	<%= form.text_field :title %><br/>
+    	eg. "Rails Developer" or "Merb Guru"
+  	</td>
+	</tr>
+	<tr>
+  	<th>Job Type:</th>
+  	<td>
+    	<%= form.select(:type_id, Type::NAMES, { :include_blank => true } ) %>
+  	</td>
+	</tr>
+	<tr>
+  	<th>Location:</th>
+  	<td>
+    	<%= form.select(:location_id, Location::NAMES, { :include_blank => true } ) %>
+  	</td>
+	</tr>
+	<tr>
+  	<th><%= form.label :description %>:</th>
+  	<td>
+			<%= form.text_area :description %>
+  	</td>
+	</tr>
+	<tr>
+  	<th><%= form.label :how_to_apply %>:</th>
+  	<td>
+    	<%= form.text_field :how_to_apply %>
+  	</td>
+	</tr>
+	<tr class="sticky_goo_pot">
+		<th>Other:</td>
+		<td><input id="sticky_goo_pot" name="sticky_goo_pot" size="30" type="text"></td>
+	</tr>
+	<tr class="private">
+  	<th>Your Email:</th>
+  	<td>
+    	<%= form.text_field :email %><br />
+			*This will remain private* - Please use a real email, you won't be able to edit the job without one.
+  	</td>
+	</tr>
+</table>

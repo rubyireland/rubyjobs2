@@ -1,0 +1,19 @@
+<ul id="rules">
+	<li>This is a free service</li>
+	<li>Jobs will be displayed for 4 weeks</li>
+	<li>Ruby related jobs only please</li>
+	<li>No recruitment agencies</li>
+</ul>
+
+<h1>Post a new job</h1>
+
+<% form_for(@job) do |form| %>
+  %= @job.error_messages %
+
+  <%= render :partial => 'form_fields', :locals => {:form => form} %>
+
+  <p class='form_control'>
+    <%= form.submit "Post Job >>" %>
+  </p>
+<% end %>
+

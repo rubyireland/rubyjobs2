@@ -4,6 +4,8 @@ class Job < ActiveRecord::Base
 	validates_presence_of :company, :email, :type_id, :location_id, :title, :description, :how_to_apply
 	validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"
 	
+	attr_accessible :title, :company, :url, :email, :location_id, :type_id, :how_to_apply, :description
+	
 	belongs_to :type
 	belongs_to :location
 	

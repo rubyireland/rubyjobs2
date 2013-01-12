@@ -6,7 +6,6 @@
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="icon" href="/favicon.ico" />
 	  	<%= stylesheet_link_tag 'application' %>
-		<script src="http://rubyjobs.uservoice.com/pages/general/widgets/tab.js" type="text/javascript"></script>
 		<link href="http://feeds.feedburner.com/rubyjobsireland" type="application/rss+xml" rel="alternate" />
 		<% if protect_against_forgery? %> 
 			<%= javascript_tag "window.AUTH_TOKEN = '#{form_authenticity_token}';" %>
@@ -31,11 +30,9 @@
 				<%= yield  %>
 			</div>
 			<div id="footer">
-				
 				<ul>
 					<li><%= link_to 'About Us', about_us_path %></li>
 					<li><a href="http://github.com/GavinJoyce/rubyjobs2">Code on github</a></li>
-					<li><a href="http://rubyjobs.lighthouseapp.com/projects/21484-rubyjobs/overview">Issue Tracker</a></li>
 					<li><a href="http://rubyjobs.uservoice.com/">Ideas and suggestions</a></li>
 					<li><a href="http://groups.google.com/group/ruby_ireland">Ruby Ireland</a></li>
 				</ul>
@@ -55,6 +52,5 @@
 		var pageTracker = _gat._getTracker("UA-6871713-1");
 		pageTracker._trackPageview();
 		} catch(err) {}</script>
-		
 	</body>
 </html>

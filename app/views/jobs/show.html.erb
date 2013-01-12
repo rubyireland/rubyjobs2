@@ -1,0 +1,19 @@
+
+<h2 id="job_title"><%= h(@job.title) %> <span class="connective">at</span> <%= h(@job.company) %></h2>
+<dl id="job_details">
+  <dt>Type:</dt><dd><%= @job.type.name %></dd>
+  <dt>Location:</dt><dd><%= @job.location.name %></dd>
+	<dt>Posted:</dt><dd><%= time_ago_in_words(@job.created_at) %> ago</dd>
+  <dt class="description">Description:</dt><dd class="description"><%= raw RedCloth.new(@job.description).to_html %></dd>
+  <dt>How to apply:</dt><dd><%= h(@job.how_to_apply) %></dd>
+</dl>
+
+<% if param_present? :key %>
+	<p class="highlighted_link">
+		<%= link_to('Edit this job', :action => 'edit', :id => @job.id, :key => params[:key]) %>
+	</p>
+<% else %>
+	<p class="highlighted_link">
+		<%= link_to('<< Return to jobs list', :root) %>
+	</p>
+<% end %>

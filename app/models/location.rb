@@ -3,6 +3,8 @@ class Location < ActiveRecord::Base
     [l.name, l.id]
   end
   
+  attr_accessible :name
+  
 	validates_presence_of :name
 	has_many :jobs
 end
