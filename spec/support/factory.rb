@@ -15,6 +15,6 @@ Factory.define :location do |location|
   location.name 'Dublin'
 end
 
-#Factory.define :type do |type|
-#  type.name 'Contract'
-#end
+Factory.define :type do |type|
+  type.name 'Contract'
+end
