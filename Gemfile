@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem "scoped_search"
 
 group :production do
   gem 'pg'
