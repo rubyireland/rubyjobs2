@@ -11,3 +11,362 @@
  *= require_self
  *= require_tree .
  */
+
+
+/* CSS Reset */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+/*******************************************/
+
+* {
+	margin: 				0;
+	padding: 				0;
+}
+
+
+
+body {
+	background-color: 		#eee;
+	font-family: 			Arial;
+}
+
+#container {
+	margin: 					0 auto;
+	position: 				relative;
+	width: 						920px;
+	border-left: 			1px solid #ccc;
+	border-right: 		1px solid #ccc;
+	background-color: white;
+}
+
+#header {
+	height: 				60px;
+	padding: 				4px 10px;
+	border-bottom:	1px solid #eee;
+}
+
+	#header h1 {
+		background: url(/assets/logo.png) no-repeat; 
+		float: left; 
+		width: 253px; 
+		height: 57px;
+	}
+
+	#header h1 a {
+		position: absolute; 
+		left: 0px;
+		top: -100px;
+		width: 260px;
+		height: 160px;
+	}
+
+	#header p {
+		float: right;
+		margin-top: 20px;
+	}
+
+	#header p a, .highlighted_link a {
+		background-color: #FFFFCC;
+		padding: 6px;
+		color: #333;
+		font-size: 1.2em;
+		font-weight: bolder;
+	}
+
+#content {
+	min-height: 		400px;
+	padding: 				4px;
+	margin:					20px;
+	margin-top: 		6px;
+}
+
+.flash {
+	padding: 4px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	margin-bottom: 		6px;
+}
+
+	.flash_error {
+		background-color: red;
+		border: 1px solid white;
+	}
+
+	.flash_notice {
+		background-color: orange;
+		border: 1px solid white;
+	}
+
+	.flash_success {
+		background-color: green;
+		border: 1px solid white;
+	}
+
+#search {
+	text-align: center;
+	padding-bottom: 10px;
+
+}
+  #search form label{
+    display: block;
+    margin-bottom:0.5em;
+  }
+  #search form input {
+    font-size: 1.5em;
+  }
+
+#results {
+
+}
+
+#results_header {
+	font-size: 1.6em;
+}
+
+#rss_link {
+  float: right;
+  background: url(/assets/rss-28x28.png) no-repeat center right;
+  padding: 8px 30px 8px 0;
+  text-transform:uppercase;
+  font-weight:bold;
+  font-size: 0.8em;
+  color: #000;
+  text-decoration: none;
+}
+#rss_search {
+}
+
+
+#job_list {
+	margin-top: 10px;
+	background-color: #eee;
+	width: 100%;
+}
+
+	#job_list {
+		list-style-type: none;
+	}
+
+	.job {
+		border-bottom: 1px solid #ccc;
+		padding: 6px;
+	}
+
+		.job .location {
+			font-weight: bold;
+			color: darkgreen;
+		}
+
+		.job .title a {
+			color: darkblue;
+		}
+
+		.job .company {
+			font-style: italic;
+			color: #444;
+		}
+
+		.job .created_at {
+		  float: right;
+			color: #666;
+			font-size: .9em;
+		}
+
+#no_jobs {
+	line-height: 2em;
+}
+
+h2#job_title {
+  font-weight: bold;
+  font-size: 1.6em;
+}
+h2#job_title span.connective {
+  font-weight: normal;
+  font-style: italic;
+}
+dl#job_details {
+  margin-top: 1em;
+  line-height: 1.5;
+	margin-bottom: 30px;
+}
+dl#job_details dt {
+  font-weight: bold;
+  float: left;
+}
+dl#job_details dd {
+  padding-left: 140px;
+}
+dl#job_details .description {
+  margin: 1em 0;
+}
+
+ul#rules {
+	background-color: #eee;
+	padding: 4px;
+	margin-bottom: 12px;
+	list-style-type: none;
+	font-style: italic;
+	font-size: 0.8em;
+	line-height: 1.2em;
+}
+
+.errorExplanation {
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px;
+  width: 50%;
+}
+
+.errorExplanation h2 {
+  font-weight: bold;
+}
+
+.errorExplanation p {
+  margin: 10px 0px 10px 0px;
+}
+
+.errorExplanation ul {
+  padding-left: 20px;
+}
+
+#content h1 {
+  font-size: 1.6em;
+}
+
+.new_job {
+  padding-top: 20px;
+}
+
+
+table.form {
+	border: 1px solid #eee;
+}
+table.form td {
+  padding: 4px;
+	color: #999;
+	font-size: 0.8em;
+	line-height: 1.1em;
+}
+
+table.form td input, table.form td textarea {
+	width: 400px;
+}
+
+table.form td input {
+	font-weight: bold;
+}
+table.form td input, table.form td select, table.form td textarea {
+	font-size: 1.1em;
+}
+
+table.form td textarea {
+	height: 200px;
+}
+
+table.form th {
+	padding: 5px;
+	padding-top: 9px;
+	vertical-align: top;
+	text-align: right;
+	font-size: 1.1em;
+}
+
+table.form tr {
+	padding: 4px;
+}
+
+table.form tr.sticky_goo_pot {
+	display: none;
+}
+
+table.form tr.private {
+	background-color: #ddd;
+}
+
+.form_control {
+  padding: 10px;
+	margin-top: 4px;
+	border: 1px solid #ccc;	
+}
+
+.form_control input {
+	font-size: 1.3em;
+}
+
+#footer {
+	background-color: 		#f5f5f5;
+	border-top: 					1px solid #ccc;
+	border-bottom: 				1px solid #ccc;
+	padding: 							4px;
+	color: 								#aaa;
+	font-size: 						0.8em;
+	text-align: 					center;
+}
+
+	#footer a {
+		color: #444;
+	}
+
+	#footer p {
+		padding-top: 16px;
+	}
+
+
+	#footer ul {
+		list-style-type: none;
+		display: inline;
+	}
+
+	#footer ul li {
+		margin-left: 0;
+		padding: 3px 15px;
+		border-left: 1px solid #aaa;
+		border-right: 1px solid #aaa;
+		border-bottom: 1px solid #aaa;
+		list-style: none;
+		display: inline;
+	}
+

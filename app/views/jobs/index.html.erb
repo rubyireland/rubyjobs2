@@ -1,0 +1,31 @@
+<div id="search">
+	<form method="get" autocomplete="off">
+	  <label for="search_term">Jobs searched as you type...</label>
+		<input type="text" value="<%=h params[:search] %>" name="search" id="search_term" />
+	</form>
+	<%= set_focus_to_id 'search_term' %>
+</div>
+
+
+<div id="results">
+  <% link_to rss_link, :id => "rss_link" do %>
+		<span id="rss_search">RSS feed
+      <%=h "for '#{params[:search]}'" if params[:search] %>
+		</span>
+	<% end %>
+	
+	<h1 id="results_header">
+		Latest Ruby Jobs:
+	</h1>
+
+	<ul id="job_list">
+	<% if @jobs.length > 0 %>
+		<%= render :partial => @jobs %>
+	<% else %>
+    <span id="no_jobs">
+			<p>Maybe it's the economy or maybe it's because we've recently launched but there are no jobs here at the moment.</p>
+			<p>Perhaps you would like to <%= link_to 'post the first job', new_job_path %>?</p>
+		</span>
+	<% end %>
+	</ul>
+</div>
