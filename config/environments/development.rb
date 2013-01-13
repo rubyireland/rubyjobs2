@@ -13,9 +13,6 @@ Rubyjobs2::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -34,4 +31,17 @@ Rubyjobs2::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # Don't care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = false
+  
+  ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address        => "smtp.gmail.com",
+    :port           => 587,
+    :domain         => "jobs@rubyjobs.ie",
+    :user_name      => "jobs@rubyjobs.ie",
+    :authentication => :plain,
+    :password       => ENV['GMAIL_PASSWORD']
+  }
 end
