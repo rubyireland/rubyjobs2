@@ -1,3 +1,21 @@
 == Welcome to rubyjobs2, a simple job listing app from Ruby Ireland
 
-This is a work-in-progress, the original rubyjobs app can be found at link:https://github.com/GavinJoyce/rubyjobs
+This is a port of the original rubyjobs project which was rails 2 and over 4 years old (https://github.com/GavinJoyce/rubyjobs).
+
+TODO:
+
+ 1. Improve Readme
+ 2. Improve Test Coverage (especially jobs_controller_spec.rb)
+ 3. Improve UI
+
+=== Project Setup
+
+ TODO
+
+=== Running Tests
+
+ TODO
+
+=== Deployment Steps
+
+ TODO
