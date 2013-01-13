@@ -4,6 +4,7 @@ gem 'rails', '3.2.11'
 gem 'scoped_search'
 gem 'RedCloth'
 gem 'dynamic_form'
+gem 'thin'
 
 group :production do
   gem 'pg'
