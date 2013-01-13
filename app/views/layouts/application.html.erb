@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-		<title>RubyJobs</title>
+		<title>RubyJobs.ie - The latest ruby jobs in Ireland</title>
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="icon" href="/favicon.ico" />
 	  	<%= stylesheet_link_tag 'application' %>
@@ -17,7 +17,7 @@
 	<body>
 		<div id="container">
 			<div id="header">
-				<h1><%= link_to 'RubyJobs', :root %></h1>
+				<h1><%= link_to 'RubyJobs', :root, { :title => "The latest Ruby jobs in Ireland" } %></h1>
 				<p>
 					<%= main_nav %>
 				</p>
@@ -31,14 +31,13 @@
 			</div>
 			<div id="footer">
 				<ul>
-					<li><%= link_to 'About Us', about_us_path %></li>
 					<li><a href="http://github.com/GavinJoyce/rubyjobs2">Code on github</a></li>
 					<li><a href="http://rubyjobs.uservoice.com/">Ideas and suggestions</a></li>
-					<li><a href="http://groups.google.com/group/ruby_ireland">Ruby Ireland</a></li>
+					<li><a href="http://rubyireland.com/">Ruby Ireland</a></li>
 				</ul>
 				
 				<p>
-					RubyJobs.ie is an <a href="http://github.com/GavinJoyce/rubyjobs/tree/master">open source project</a> from <a href="http://www.incremental.ie/">Incremental.ie</a> and <a href="http://groups.google.com/group/ruby_ireland">Ruby Ireland</a>
+					RubyJobs.ie is an <a href="http://github.com/GavinJoyce/rubyjobs2">open source project</a> from <a href="http://incremental.ie/">Incremental.ie</a> and <a href="http://rubyireland.com/">Ruby Ireland</a>
 				</p>
 			</div>
 		</div>

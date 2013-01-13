@@ -8,7 +8,7 @@ TODO:
  2. Improve Test Coverage (especially jobs_controller_spec.rb)
  3. Improve UI
 
-=== Project Setup
+=== Dev Environment Setup
 
  TODO
 
