@@ -9,7 +9,7 @@ class CreateJobs < ActiveRecord::Migration
 			t.column :type_id,						:integer
 			t.column :location_id,				:integer
 			t.column :title,							:string, :limit => 50
-			t.column :description,				:string, :limit => 1000
+			t.column :description,				:string, :limit => 8000
 			t.column :how_to_apply,				:string, :limit => 100
 			t.column :key, 								:string
 
