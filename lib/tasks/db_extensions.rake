@@ -1,6 +1,13 @@
 namespace :db do
   desc 'Drops, then recreates and carries out migrations on your database.' 
   task :clean => ['db:drop', 'db:create', 'db:migrate']
+  
+  desc 'Clean, then seed the database'
+  task(:empty => :environment) do
+    [Job, Type, Location].each do |model|
+      model.destroy_all
+    end
+  end
 
 	desc "Populate database with locations"
 	task(:seed_locations => :environment) do
@@ -16,7 +23,7 @@ namespace :db do
 	
 	desc "Populate database with the minimum essential data"
   task(:seed_minimum => :environment) do
-    Rake::Task['db:clean'].invoke
+    Rake::Task['db:empty'].invoke
 		Rake::Task['db:seed_locations'].invoke
 		Rake::Task['db:seed_types'].invoke
 	end
