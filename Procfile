@@ -1,1 +1,1 @@
-web: bundle exec thin start -p 1111
+web: bundle exec rails server -p $PORT

@@ -18,7 +18,6 @@ group :development, :test do
   gem 'factory_girl'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'thin'
 end
 
 group :assets do
