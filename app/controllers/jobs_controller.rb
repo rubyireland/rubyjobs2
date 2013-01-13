@@ -40,7 +40,7 @@ class JobsController < ApplicationController
 
 			respond_to do |format|
 				if @job.save
-					JobMailer.deliver_confirmation(@job)
+					JobMailer.confirmation_email(@job).deliver
 
 					flash[:notice] = 'Job was successfully created.'
 					format.html { redirect_to :action => 'show', :id => @job.id, :key => @job.key }

@@ -1,13 +1,12 @@
 
 <h1>Edit Job</h1>
 
-<% form_for(@job) do |form| %>
-  <%= form.error_messages %>
-	<%= hidden_field_tag :key, @job.key %>
+<%= form_for(@job) do |form| %>
+  <%= error_messages_for(@job) %>
+  <%= hidden_field_tag :key, @job.key %>
   <%= render :partial => 'form_fields', :locals => {:form => form} %>
 
   <p class='form_control'>
     <%= form.submit "Update Job >>" %>
   </p>
 <% end %>
-

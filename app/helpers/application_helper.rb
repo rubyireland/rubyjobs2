@@ -16,7 +16,7 @@ module ApplicationHelper
    end
    
    def rss_link
-     param_present?(:search) ? formatted_jobs_url(:rss, rss_link_attributes) : "http://feeds.feedburner.com/rubyjobsireland"
+     param_present?(:search) ? jobs_url(:rss, rss_link_attributes) : "http://feeds.feedburner.com/rubyjobsireland"
    end
 
    def rss_link_attributes

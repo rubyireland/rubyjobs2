@@ -8,7 +8,7 @@
 
 
 <div id="results">
-  <% link_to rss_link, :id => "rss_link" do %>
+  <%= link_to rss_link, :id => "rss_link" do %>
 		<span id="rss_search">RSS feed
       <%=h "for '#{params[:search]}'" if params[:search] %>
 		</span>
