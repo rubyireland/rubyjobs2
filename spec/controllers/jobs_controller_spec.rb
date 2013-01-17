@@ -10,19 +10,16 @@ describe JobsController do
 		end
 
 		it "should render correctly" do
-		  pending
 			response.should be_success
 			response.should render_template 'index'
 		end
 
-		it "should render correctly as RSS" do #NOTE: GJ: this is resulting in a 406 response. what is the correct way to spec formats?
-			#get :index, :format => :rss
-			#response.should be_success
-			pending
+		it "should render correctly as RSS" do
+			get :index, :format => :rss
+			response.should be_success
 		end
 
 		it "should assign a jobs collection" do
-		  pending
 			assigns[:jobs].should_not be_nil
 			assigns[:jobs][0].should == @job
 		end
@@ -54,7 +51,6 @@ describe JobsController do
 
 		describe "when a search term is provided" do
 			it "should render correctly" do
-			  pending
 				get :index, {:search => 'merb'}
 				response.should be_success
 				response.should render_template 'index'
@@ -99,13 +95,11 @@ describe JobsController do
 		end
 
 		it "should be successful" do
-		  pending
 			response.should be_success
 			response.should render_template 'show'
 		end
 
 		it "should assign a job" do
-		  pending
 			assigns[:job].should == @job
 		end
 	end
@@ -116,13 +110,11 @@ describe JobsController do
 		end
 
 		it "should be successful" do
-		  pending
 			response.should be_success
 			response.should render_template 'new'
 		end
 
 		it "should assign a job" do
-		  pending
 			assigns[:job].should_not be_nil
 			assigns[:job].should be_an_instance_of Job
 		end
@@ -139,13 +131,11 @@ describe JobsController do
 			end
 			
 			it "should be successful" do
-			  pending
 				response.should be_success
 				response.should render_template 'edit'
 			end
 
 			it "should assign a job" do
-			  pending
 				assigns[:job].should == @job
 			end
 			
@@ -164,7 +154,6 @@ describe JobsController do
 			end
 			
 			it "should redirect to homepage" do
-			  pending
 				response.should be_redirect
 			end
 		end
@@ -176,7 +165,6 @@ describe JobsController do
 			end
 			
 			it "should redirect to homepage" do
-			  pending
 				response.should be_redirect
 			end
 		end
@@ -227,12 +215,10 @@ describe JobsController do
 			end
 			
 			it "should not create a job" do
-			  pending
 				Job.count.should == 0
 			end
 			
 			it "should redirect to the new job action" do
-			  pending
 				response.should be_redirect
 			end
 		end
