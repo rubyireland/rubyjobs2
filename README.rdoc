@@ -10,7 +10,11 @@ TODO:
 
 === Dev Environment Setup
 
- TODO
+ git clone git@github.com:GavinJoyce/rubyjobs2.git
+ cd rubyjobs2
+ bundle
+ ... (additional steps coming soon...)
+ 
 
 === Running Tests
 
