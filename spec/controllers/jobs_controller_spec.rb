@@ -26,8 +26,7 @@ describe JobsController do
 
 		describe "when there are jobs to display" do
 			it "should list the most recent jobs" do
-			  pending
-				response.should have_tag("ul#job_list")
+				response.body.should have_selector("ul#job_list")
 			end
 		end
 
@@ -38,14 +37,12 @@ describe JobsController do
 			end
 
 			it "should show a message indicating that there are no jobs" do
-			  pending
-				response.should have_tag("span#no_jobs")
+				response.body.should have_selector("span#no_jobs")
 			end
 
 			it "should not display any jobs in the table" do
-			  pending
 				get :index
-				response.should_not have_tag("tr.job")
+				response.body.should_not have_selector("tr.job")
 			end
 		end
 
@@ -57,10 +54,10 @@ describe JobsController do
 			end
 
 			it "should link to an RSS feed for the search term" do
-			  pending
 				get :index, {:search => 'merb'}
-				response.should have_text(/a\shref=\"http.+jobs\.rss\?search=merb"/)
-				response.should have_text(/RSS feed\s* for 'merb'/)
+				pending
+				response.body.should have_text(/a\shref=\"http.+jobs\.rss\?search=merb"/)
+				response.body.should have_text(/RSS feed\s* for 'merb'/)
 			end
 
 			it "should assign jobs which contain the search term"
@@ -120,7 +117,6 @@ describe JobsController do
 		end
 
 		it "should have more specs"
-
 	end
 
 	describe "the edit action" do
@@ -140,8 +136,7 @@ describe JobsController do
 			end
 			
 			it "should display the edit form with a hidden key field" do
-			  pending
-				response.should have_tag("form.edit_job") do
+				response.body.should have_selector("form.edit_job") do
 					with_tag "input[type=hidden][name=key]", :content => @job.key
 				end
 			end
@@ -154,7 +149,7 @@ describe JobsController do
 			end
 			
 			it "should redirect to homepage" do
-				response.should be_redirect
+				response.should redirect_to('/')
 			end
 		end
 		
@@ -165,19 +160,19 @@ describe JobsController do
 			end
 			
 			it "should redirect to homepage" do
-				response.should be_redirect
+				response.should redirect_to('/')
 			end
 		end
 	end
 
 	describe "the create action" do
+	  let(:valid_attributes) { Factory.attributes_for(:job, :location_id => Factory(:location).id, :type_id => Factory(:type).id) }
 		describe "with valid attributes" do
 			it "should create and redirect to the new job" do
-			  pending
 				Job.count.should == 0
-				post 'create', { :job => Factory.build(:job).attributes }
+				post 'create', { :job => valid_attributes }
 				Job.count.should == 1
-				response.should be_redirect #TODO: GJ: test for view action
+				response.should be_redirect
 				flash[:notice].should_not == nil
 			end
 			
@@ -186,32 +181,30 @@ describe JobsController do
 			end
 
 			it "should send an email" do
-			  pending
-				JobMailer.should_receive(:deliver_confirmation)
-				post 'create', { :job => Factory.build(:job).attributes }
+			  expect {
+          post :create, job: valid_attributes
+        }.to change(ActionMailer::Base.deliveries,:count)
 			end
 		end
 		
 		describe "with invalid attributes" do
-			before do
-			  pending
-				post 'create', { :job => Factory.build(:job, :title => nil).attributes }
-			end
-			
+		  let(:invalid_attributes) { valid_attributes.except(:title) }
 			it "should not create a job" do
-			  pending
-				Job.count.should == 0
+			  expect {
+          post :create, job: invalid_attributes
+        }.to_not change(Job,:count)
 			end
 			
 			it "should show an error message" do
-			  pending
-				response.should have_tag("div.errorExplanation")
+			  post :create, job: invalid_attributes
+				response.body.should have_selector('div.errorExplanation')
+				response.should render_template :new
 			end
 		end
 		
 		describe "with a non-blank honeypot" do
 			before do
-				post 'create', { :job => Factory.build(:job).attributes, :sticky_goo_pot => "I'm a spammer's computer." }
+				post 'create', { :job => valid_attributes, :sticky_goo_pot => "I'm a spammer's computer." }
 			end
 			
 			it "should not create a job" do
