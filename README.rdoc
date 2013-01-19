@@ -1,24 +1,18 @@
 == Welcome to rubyjobs2, a simple job listing app from Ruby Ireland
 
-This is a port of the original rubyjobs project which was rails 2 and over 4 years old (https://github.com/GavinJoyce/rubyjobs).
-
-TODO:
-
- 1. Improve Readme
- 2. Improve Test Coverage (especially jobs_controller_spec.rb)
- 3. Improve UI
+This is a simple rails job board, you can see the running website at http://www.rubyjobs.ie.
 
 === Dev Environment Setup
 
- git clone git@github.com:GavinJoyce/rubyjobs2.git
- cd rubyjobs2
- bundle
+ $ git clone git@github.com:GavinJoyce/rubyjobs2.git
+ $ cd rubyjobs2
+ $ bundle
  ... (additional steps coming soon...)
  
 
 === Running Tests
 
- TODO
+ $ rspec
 
 === Deployment Steps
 
