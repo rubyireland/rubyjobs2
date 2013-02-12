@@ -2,8 +2,11 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'factory_girl'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+FactoryGirl.find_definitions
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
@@ -11,6 +14,8 @@ RSpec.configure do |config|
   config.order = "random"
   config.color_enabled = true
   config.formatter     = 'documentation'
+  
+  config.include FactoryGirl::Syntax::Methods
   
   Job.destroy_all
 end

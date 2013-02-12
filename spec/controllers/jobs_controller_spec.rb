@@ -5,7 +5,7 @@ describe JobsController do
 
 	describe "the index action" do
 		before do
-			@job = Factory(:job)
+			@job = create(:job)
 			get :index
 		end
 
@@ -87,7 +87,7 @@ describe JobsController do
 
 	describe "the show action" do
 		before do
-			@job = Factory(:job)
+			@job = create(:job)
 			get 'show', :id => @job
 		end
 
@@ -122,7 +122,7 @@ describe JobsController do
 	describe "the edit action" do
 		describe "with a valid action key" do
 			before do
-				@job = Factory(:job)
+				@job = create(:job)
 				get :edit, { :id => @job, :key => @job.key }
 			end
 			
@@ -144,7 +144,7 @@ describe JobsController do
 		
 		describe "with no action key" do
 			before do
-				@job = Factory(:job)
+				@job = create(:job)
 				get :edit, { :id => @job }
 			end
 			
@@ -155,7 +155,7 @@ describe JobsController do
 		
 		describe "with an invalid action key" do
 			before do
-				@job = Factory(:job)
+				@job = create(:job)
 				get :edit, { :id => @job, :key => "abc#{@job.key}" }
 			end
 			
@@ -166,7 +166,7 @@ describe JobsController do
 	end
 
 	describe "the create action" do
-	  let(:valid_attributes) { Factory.attributes_for(:job, :location_id => Factory(:location).id, :type_id => Factory(:type).id) }
+	  let(:valid_attributes) { attributes_for(:job, :location_id => create(:location).id, :type_id => create(:type).id) }
 		describe "with valid attributes" do
 			it "should create and redirect to the new job" do
 				Job.count.should == 0
