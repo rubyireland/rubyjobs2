@@ -14,13 +14,13 @@
 ActiveRecord::Schema.define(:version => 20130112221449) do
 
   create_table "jobs", :force => true do |t|
-    t.string   "company",      :limit => 50
+    t.string   "company",      :limit => 200
     t.string   "url",          :limit => 300
     t.string   "email",        :limit => 200
     t.integer  "type_id"
     t.integer  "location_id"
-    t.string   "title",        :limit => 50
-    t.string   "description",  :limit => 1000
+    t.string   "title",        :limit => 200
+    t.string   "description",  :limit => 8000
     t.string   "how_to_apply", :limit => 100
     t.string   "key"
     t.datetime "created_at",                   :null => false
