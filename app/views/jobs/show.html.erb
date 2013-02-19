@@ -2,7 +2,7 @@
 <h2 id="job_title"><%= h(@job.title) %> <span class="connective">at</span> <%= h(@job.company) %></h2>
 <dl id="job_details">
   <% unless @job.url.blank? %>
-  <dt>URL:</dt><dd><%= link_to @job.url, @job.url %></dd>
+  <dt>URL:</dt><dd><%= link_to @job.url, @job.url, rel: "nofollow", target: "_blank" %></dd>
   <% end %>
   <dt>Type:</dt><dd><%= @job.type.name %></dd>
   <dt>Location:</dt><dd><%= @job.location.name %></dd>
