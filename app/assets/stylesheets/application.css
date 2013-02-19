@@ -66,8 +66,14 @@ blockquote, q {
 	padding: 				0;
 }
 
+p, ul {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
 
-
+ul {
+  margin-left: 1em;
+}
 body {
 	background-color: 		#eee;
 	font-family: 			Arial;
@@ -89,14 +95,14 @@ body {
 }
 
 	#header h1 {
-		background: url(/assets/logo.png) no-repeat; 
-		float: left; 
-		width: 253px; 
+		background: url(/assets/logo.png) no-repeat;
+		float: left;
+		width: 253px;
 		height: 57px;
 	}
 
 	#header h1 a {
-		position: absolute; 
+		position: absolute;
 		left: 0px;
 		top: -100px;
 		width: 260px;
@@ -274,6 +280,12 @@ ul#rules {
 
 #content h1 {
   font-size: 1.4em;
+  font-weight: bold;
+}
+
+#content h2 {
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .new_job {
@@ -329,7 +341,7 @@ table.form tr.private {
 .form_control {
   padding: 10px;
 	margin-top: 4px;
-	border: 1px solid #ccc;	
+	border: 1px solid #ccc;
 }
 
 .form_control input {
