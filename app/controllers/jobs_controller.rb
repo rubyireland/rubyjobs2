@@ -7,6 +7,7 @@ class JobsController < ApplicationController
 			format.html
 			format.rss
 			format.js
+			format.json { render json: @jobs }
 		end
 	end
 
