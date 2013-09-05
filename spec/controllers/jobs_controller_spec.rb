@@ -19,6 +19,11 @@ describe JobsController do
 			response.should be_success
 		end
 
+		it 'should render correctly as JSON' do
+			get :index, :format => :json
+			response.should be_success
+		end
+
 		it "should assign a jobs collection" do
 			assigns[:jobs].should_not be_nil
 			assigns[:jobs][0].should == @job
