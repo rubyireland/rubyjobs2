@@ -7,13 +7,11 @@ This is a simple rails job board from Ruby Ireland, you can see the running webs
  $ git clone git@github.com:GavinJoyce/rubyjobs2.git
  $ cd rubyjobs2
  $ bundle
- ... (additional steps coming soon...)
+ $ rake db:create
+ $ rake db:migrate
+ $ rake db:seed
+ $ rails server
  
-
 === Running Tests
 
  $ rspec
-
-=== Deployment Steps
-
- TODO
