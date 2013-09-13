@@ -15,13 +15,20 @@ describe JobsController do
 		end
 
 		it "should render correctly as RSS" do
-			get :index, :format => :rss
+			get :index, format: :rss
 			response.should be_success
 		end
 
 		it 'should render correctly as JSON' do
-			get :index, :format => :json
+			get :index, format: :json
 			response.should be_success
+		end
+
+		it 'should respond correctly to JSONP' do
+			get :index, callback: 'someCallback', format: :js
+			response.should be_success
+			jsonp = response.body
+			jsonp[0..12].should == 'someCallback('
 		end
 
 		it "should assign a jobs collection" do
@@ -130,7 +137,7 @@ describe JobsController do
 				@job = create(:job)
 				get :edit, { :id => @job, :key => @job.key }
 			end
-			
+
 			it "should be successful" do
 				response.should be_success
 				response.should render_template 'edit'
@@ -139,31 +146,31 @@ describe JobsController do
 			it "should assign a job" do
 				assigns[:job].should == @job
 			end
-			
+
 			it "should display the edit form with a hidden key field" do
 				response.body.should have_selector("form.edit_job") do
 					with_tag "input[type=hidden][name=key]", :content => @job.key
 				end
 			end
 		end
-		
+
 		describe "with no action key" do
 			before do
 				@job = create(:job)
 				get :edit, { :id => @job }
 			end
-			
+
 			it "should redirect to homepage" do
 				response.should redirect_to('/')
 			end
 		end
-		
+
 		describe "with an invalid action key" do
 			before do
 				@job = create(:job)
 				get :edit, { :id => @job, :key => "abc#{@job.key}" }
 			end
-			
+
 			it "should redirect to homepage" do
 				response.should redirect_to('/')
 			end
@@ -180,7 +187,7 @@ describe JobsController do
 				response.should be_redirect
 				flash[:notice].should_not == nil
 			end
-			
+
 			it "should create and redirect to the job with an edit link" do
 				pending
 			end
@@ -191,7 +198,7 @@ describe JobsController do
         }.to change(ActionMailer::Base.deliveries,:count)
 			end
 		end
-		
+
 		describe "with invalid attributes" do
 		  let(:invalid_attributes) { valid_attributes.except(:title) }
 			it "should not create a job" do
@@ -199,23 +206,23 @@ describe JobsController do
           post :create, job: invalid_attributes
         }.to_not change(Job,:count)
 			end
-			
+
 			it "should show an error message" do
 			  post :create, job: invalid_attributes
 				response.body.should have_selector('div.errorExplanation')
 				response.should render_template :new
 			end
 		end
-		
+
 		describe "with a non-blank honeypot" do
 			before do
 				post 'create', { :job => valid_attributes, :sticky_goo_pot => "I'm a spammer's computer." }
 			end
-			
+
 			it "should not create a job" do
 				Job.count.should == 0
 			end
-			
+
 			it "should redirect to the new job action" do
 				response.should be_redirect
 			end
