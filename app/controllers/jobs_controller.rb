@@ -6,8 +6,12 @@ class JobsController < ApplicationController
 		respond_to do |format|
 			format.html
 			format.rss
-			format.js
-			format.json { render json: @jobs }
+			#respond to jsonp to support same origin policy working around.
+			if params[:callback]
+     		format.js { render json: @jobs, callback: params[:callback] }
+		   else
+		   	format.json { render json: @jobs }
+		  end
 		end
 	end
 
@@ -18,10 +22,10 @@ class JobsController < ApplicationController
 			format.html
 		end
 	end
-	
+
 	def new
 		@job = Job.new
-		
+
 		respond_to do |format|
 			format.html
 		end
@@ -52,7 +56,7 @@ class JobsController < ApplicationController
 		end
 	end
 
-	def update 
+	def update
 		find_job_with_key
 
 		unless @job.nil?
@@ -84,7 +88,7 @@ class JobsController < ApplicationController
 
 	def find_job_with_key
 		@job = Job.find_by_id_and_key(params[:id], params[:key])
-		
+
 		if @job.nil?
 			flash[:notice] = "That job is no longer available"
 			redirect_to(:root)
