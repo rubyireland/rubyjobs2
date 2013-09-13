@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 1.9.3
+before_install:
+  - "export DISPLAY=:99.0"
+  - "bundle install"
+  - "bundle exec rake db:migrate RAILS_ENV=test"
+  - "bundle exec rspec spec"
+env:
+  global:
+    - DISPLAY=:99.0

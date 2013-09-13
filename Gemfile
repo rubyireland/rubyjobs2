@@ -20,6 +20,7 @@ group :development, :test do
   gem 'factory_girl'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'coveralls', require: false
 end
 
 group :assets do
