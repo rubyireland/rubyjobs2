@@ -6,8 +6,7 @@ class JobsController < ApplicationController
 		respond_to do |format|
 			format.html
 			format.rss
-			#respond to jsonp to support same origin policy working around.
-			if params[:callback]
+			if params[:callback] #jsonp
      		format.js { render json: @jobs, callback: params[:callback] }
 		   else
 		   	format.json { render json: @jobs }
