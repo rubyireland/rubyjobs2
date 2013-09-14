@@ -1,4 +1,4 @@
-== Welcome to rubyjobs2 {<img src="https://travis-ci.org/GavinJoyce/rubyjobs2.png" alt="Build Status" />}[https://travis-ci.org/GavinJoyce/rubyjobs2]
+== Welcome to rubyjobs2 {<img src="https://travis-ci.org/GavinJoyce/rubyjobs2.png" alt="Build Status" />}[https://travis-ci.org/GavinJoyce/rubyjobs2] {<img src="https://coveralls.io/repos/GavinJoyce/rubyjobs2/badge.png?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/GavinJoyce/rubyjobs2?branch=master]
 
 This is a simple rails job board from Ruby Ireland, you can see the running website at http://www.rubyjobs.ie.
 
