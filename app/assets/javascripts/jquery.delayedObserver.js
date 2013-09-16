@@ -15,7 +15,7 @@ jQuery.fn.extend({
             window.delayedObserverCallback = function(stackPos) {
                 observed = window.delayedObserverStack[stackPos];
                 if (observed.timer) clearTimeout(observed.timer);
-                
+
                 observed.timer = setTimeout(function(){
                     observed.timer = null;
                     observed.callback(observed.obj.val(), observed.obj);
@@ -27,9 +27,9 @@ jQuery.fn.extend({
         window.delayedObserverStack.push({
             obj: $this, timer: null, delay: delay,
             oldVal: $this.val(), callback: callback });
-            
+
             stackPos = window.delayedObserverStack.length-1;
-        
+
         $this.keyup(function() {
             observed = window.delayedObserverStack[stackPos];
                 if (observed.obj.val() == observed.obj.oldVal) return;
