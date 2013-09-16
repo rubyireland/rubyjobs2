@@ -31,7 +31,10 @@ class JobsController < ApplicationController
 	end
 
 	def edit
-		find_job_with_key
+		@job = find_job_with_key
+		unless @job.present?
+			redirect_not_found
+		end
 	end
 
 	def create
@@ -56,7 +59,7 @@ class JobsController < ApplicationController
 	end
 
 	def update
-		find_job_with_key
+		@job = find_job_with_key
 
 		unless @job.nil?
 			respond_to do |format|
@@ -71,26 +74,27 @@ class JobsController < ApplicationController
 	end
 
 	def destroy
-		find_job_with_key
+		@job = find_job_with_key
 
 		unless @job.nil?
-
 			@job.destroy
 
 			respond_to do |format|
 				format.html { redirect_to(jobs_url) }
 			end
+		else
+			redirect_not_found
 		end
 	end
 
 	private
 
 	def find_job_with_key
-		@job = Job.find_by_id_and_key(params[:id], params[:key])
+		Job.find_by_id_and_key(params[:id], params[:key])
+	end
 
-		if @job.nil?
-			flash[:notice] = "That job is no longer available"
-			redirect_to(:root)
-		end
+	def redirect_not_found
+		flash[:notice] = "That job is no longer available"
+		redirect_to(:root)
 	end
 end
