@@ -135,7 +135,7 @@ describe JobsController do
 		describe "with a valid action key" do
 			before do
 				@job = create(:job)
-				get :edit, { :id => @job, :key => @job.key }
+				get :edit, { :id => @job.id, :key => @job.key }
 			end
 
 			it "should be successful" do
@@ -157,7 +157,7 @@ describe JobsController do
 		describe "with no action key" do
 			before do
 				@job = create(:job)
-				get :edit, { :id => @job }
+				get :edit, { :id => @job.id }
 			end
 
 			it "should redirect to homepage" do
@@ -168,7 +168,7 @@ describe JobsController do
 		describe "with an invalid action key" do
 			before do
 				@job = create(:job)
-				get :edit, { :id => @job, :key => "abc#{@job.key}" }
+				get :edit, { :id => @job.id, :key => "abc#{@job.key}" }
 			end
 
 			it "should redirect to homepage" do
@@ -234,7 +234,16 @@ describe JobsController do
 	end
 
 	describe "the destroy action" do
-		it "should have specs"
+		context 'given a job exists' do
+			before :each do
+				@job = Job.new
+				controller.stub(:find_job_with_key).and_return(@job)
+			end
+			it 'should delete it' do
+				@job.should_receive(:destroy)
+				post 'destroy', {job: {id: 1}}
+			end
+		end
 	end
 
 end

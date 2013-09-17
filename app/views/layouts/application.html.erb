@@ -10,9 +10,7 @@
 		<% if protect_against_forgery? %> 
 			<%= javascript_tag "window.AUTH_TOKEN = '#{form_authenticity_token}';" %>
 		<% end %>
-		<script type="text/javascript" src="/assets/jquery-1.2.6.min.js"></script>
-		<script type="text/javascript" src="/assets/jquery.delayedObserver.js"></script>
-		<script type="text/javascript" src="/assets/application.js"></script>
+		<%= javascript_include_tag 'application' %>
 	</head>
 	<body>
 		<div id="container">

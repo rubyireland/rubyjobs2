@@ -10,8 +10,8 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require jquery
 //= require_tree .
-
 
 $(document).ajaxSend(function(event, request, settings) {
 	if (typeof(window.AUTH_TOKEN) == "undefined") return;
