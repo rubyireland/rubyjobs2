@@ -25,7 +25,7 @@ describe Job do
 		it "should be valid with valid attributes" do
 			create(:job).should be_valid
 		end
-		
+
 		it { should validate_presence_of(:company) }
 		it { should validate_presence_of(:email) }
 		it { should validate_presence_of(:type_id) }
@@ -33,7 +33,7 @@ describe Job do
 		it { should validate_presence_of(:title) }
 		it { should validate_presence_of(:description) }
 		it { should validate_presence_of(:how_to_apply) }
-		
+
 		it "should ensure that email is a valid email" do
 			@job = build(:job, :email => 'invalid@email')
 			@job.should_not be_valid
@@ -45,37 +45,37 @@ describe Job do
 		it "should be searchable" do
 			Job.should respond_to(:search_for)
 		end
-		
+
 		it "should search the company" do
 			Job.search_for('google').length.should == 0
 			create(:job, :company => 'Google')
 			Job.search_for('google').length.should == 1
 		end
-		
+
 		it "should search the title" do
 			Job.search_for('contract').length.should == 0
 			create(:job, :title => 'Developer needed (contract)')
 			Job.search_for('contract').length.should == 1
 		end
-		
+
 		it "should search the description" do
 			Job.search_for('june 2009').length.should == 0
 			create(:job, :description => 'This job starts in June 2009')
 			Job.search_for('june 2009').length.should == 1
 		end
-		
+
 		it "should search the how_to_apply" do
 			Job.search_for('jobs@acme.org').length.should == 0
 			create(:job, :how_to_apply => 'email us - jobs@acme.org')
 			Job.search_for('jobs@acme.org').length.should == 1
 		end
-		
+
 		it "should search the location" do
 			Job.search_for('dublin').length.should == 0
 			create(:job, :location => create(:location, :name => 'Dublin'))
 			Job.search_for('dublin').length.should == 1
 		end
-		
+
 		it "should search the type" do
 			Job.search_for('permanent').length.should == 0
 			create(:job, :type => create(:type, :name => 'Permanent'))

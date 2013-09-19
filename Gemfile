@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
-gem 'scoped_search', '~> 2.4.0'
+gem 'scoped_search', '~> 2.6.0'
 gem 'RedCloth', '~> 4.2.9'
 gem 'dynamic_form', '~> 1.1.4'
-gem 'jquery-rails', '~> 2.2.1'
+gem 'jquery-rails', '~> 3.0.4'
 gem 'thin', '~> 1.5.0'
 
 group :production do

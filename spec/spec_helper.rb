@@ -3,6 +3,11 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'coveralls'
 Coveralls.wear!
 
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
