@@ -21,7 +21,7 @@ describe Job do
 			expected_url = "http://www.test.org"
 			@job.url = expected_url
 			@job.save!
-			@job.url.should == "http://www.test.org"
+			@job.url.should == expected_url
 		end
 	end
 
