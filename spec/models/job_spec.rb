@@ -10,6 +10,19 @@ describe Job do
 			@job2 = create(:job)
 			@job1.key.should_not == @job2.key
 		end
+
+		it "should add http on url" do
+			@job = create(:job)
+			@job.url.start_with?("http://").should == true
+		end
+
+		it "should not add http" do
+			@job = create(:job)
+			expected_url = "http://www.test.org"
+			@job.url = expected_url
+			@job.save!
+			@job.url.should == "http://www.test.org"
+		end
 	end
 
 	describe "when saving a job" do
