@@ -12,11 +12,17 @@ class Job < ActiveRecord::Base
 	searchable_on :company, :title, :description, :how_to_apply, :location_name, :type_name #see http://github.com/wvanbergen/scoped_search/tree/master
 	scope :recent, lambda { { :conditions => ['created_at > ?', 8.week.ago], :order => 'created_at DESC' } }
 
-	before_save :set_key
+	before_save :set_key, :set_http
 
 	private
 
 	def set_key
 		self.key = SecureRandom.hex(8) if self.key.nil?
+	end
+
+	def set_http
+    unless self.url.start_with?('http://') || self.url.start_with?('https://')
+		  self.url = 'http://' + self.url
+    end
 	end
 end
