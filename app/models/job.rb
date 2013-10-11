@@ -21,6 +21,8 @@ class Job < ActiveRecord::Base
 	end
 
 	def set_http
-		self.url = 'http://' + self.url unless self.url.start_with?('http://')
+    unless self.url.start_with?('http://') || self.url.start_with?('https://')
+		  self.url = 'http://' + self.url
+    end
 	end
 end

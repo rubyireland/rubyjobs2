@@ -23,6 +23,14 @@ describe Job do
 			@job.save!
 			@job.url.should == expected_url
 		end
+
+        it "should not add http on https" do
+            @job = create(:job)
+            expected_url = "https://www.test.org"
+            @job.url = expected_url
+            @job.save!
+            @job.url.should == expected_url
+        end
 	end
 
 	describe "when saving a job" do
