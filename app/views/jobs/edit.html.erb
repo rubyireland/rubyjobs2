@@ -10,3 +10,14 @@
     <%= form.submit "Update Job >>" %>
   </p>
 <% end %>
+
+<%= form_for(@job, method: "delete", html: {:onsubmit => "return confirm('Are you sure?');" }) do |form| %>
+   <%= hidden_field_tag :key, @job.key %>
+
+  <p class='form_control'>
+    <%= form.submit "Delete Job"  %>
+  </p>
+
+
+<% end %>
+
