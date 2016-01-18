@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.3'
 gem 'rails', '3.2.21'
 gem 'scoped_search', '~> 2.6.0'
 gem 'RedCloth', '~> 4.2.9'
@@ -8,7 +9,7 @@ gem 'jquery-rails', '~> 3.0.4'
 gem 'thin', '~> 1.5.0'
 
 group :production do
-  gem 'pg', '~> 0.14.1'
+  gem 'pg', '~> 0.15.0'
 end
 
 group :test do
