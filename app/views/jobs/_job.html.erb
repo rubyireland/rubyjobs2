@@ -2,5 +2,10 @@
 	<span class="created_at"><%= time_ago_in_words(job.created_at) %> ago</span>
 	<span class="location"><%= h(job.location.name) %></span>
 	<span class="title"><%= link_to h(job.title), job %></span>
+  <% if job.remote_option? %>
+    <span class="remote_icon">
+      <%= image_tag 'globe_orange_56x56.png', alt: 'Remote option.', title: 'Work Remotely!' %>
+    </span>
+  <% end %>
 	at <span class="company"><%= h(job.company) %></span>
 </li>
