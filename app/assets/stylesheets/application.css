@@ -199,6 +199,7 @@ body {
 	.job {
 		border-bottom: 1px solid #ccc;
 		padding: 6px;
+    line-height: 20px;
 	}
 
 		.job .location {
