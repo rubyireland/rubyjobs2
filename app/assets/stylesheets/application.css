@@ -221,6 +221,11 @@ body {
 			font-size: .9em;
 		}
 
+    .job .remote_icon img{
+      height: 20px;
+      vertical-align: middle;
+    }
+
 #no_jobs {
 	line-height: 2em;
 }
@@ -306,6 +311,11 @@ table.form td {
 table.form td input, table.form td textarea {
 	width: 400px;
 }
+  table.form td input.remote_option_checkbox {
+    height: 20px;
+    width: 20px;
+    margin-top: 5px;
+  }
 
 table.form td input {
 	font-weight: bold;
