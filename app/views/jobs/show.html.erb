@@ -3,6 +3,10 @@
 <dl id="job_details">
   <dt>Type:</dt><dd><%= @job.type.try(:name) %></dd>
   <dt>Location:</dt><dd><%= @job.location.name %></dd>
+  <% if @job.remote_option? %>
+    <dt>Remote Option</dt>
+    <dd>Yes</dd>
+  <% end %>
 	<dt>Posted:</dt><dd><%= time_ago_in_words(@job.created_at) %> ago</dd>
   <dt class="description">Description:</dt><dd class="description"><%= raw RedCloth.new(@job.description).to_html %></dd>
   <dt>How to apply:</dt><dd><%= h(@job.how_to_apply) %></dd>
