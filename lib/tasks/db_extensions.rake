@@ -36,7 +36,8 @@ namespace :db do
       :company => 'Titus Inc.', :url => 'http://www.titusonmerb.com/',
       :email =>'info@testtitus.com', :location_id => Location.all[0].id, :type_id => 1,
       :how_to_apply => 'Email us at jobs [at] testtitus [dot] com',
-      :description => 'Super job for the right person.')
+      :description => 'Super job for the right person.',
+			remote_option: true)
 
     Job.create!(:title => 'Rails Developer',
       :company => 'Peter Consulting', :url => 'http://peteronmerb.com/',
@@ -49,7 +50,8 @@ namespace :db do
 		  		:company => "Company #{i}", :url => 'http://somewebsite.com/',
 		      :email =>'info@somewebsite.com', :location_id => Location.all[1].id, :type_id => 2,
 		      :how_to_apply => "Call us on 01-123456#{i}",
-		      :description => 'Some description here')
+		      :description => 'Some description here',
+					remote_option: i.even?)
 		    job.created_at = (i*1.5).days.ago
 		    job.save!
 			end
