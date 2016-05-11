@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe JobsController do
-	integrate_views
 
 	describe "the index action" do
 		before do

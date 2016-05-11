@@ -31,6 +31,7 @@ class JobsController < ApplicationController
 	end
 
 	def edit
+		puts params.inspect
 		@job = find_job_with_key
 		unless @job.present?
 			redirect_not_found
