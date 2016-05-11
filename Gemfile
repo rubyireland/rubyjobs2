@@ -13,6 +13,7 @@ group :production do
 end
 
 group :test do
+  gem 'test-unit'
   gem 'shoulda-matchers'
 end
 
